@@ -1,5 +1,5 @@
 <div>
-  <img src="./public/logo-transparent-512x512.png" height="125" />
+  <img src="./public/icons/logo-transparent-512x512.png" height="125" />
 </div>
 
 # YouTube My-Kids
