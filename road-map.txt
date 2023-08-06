@@ -1,0 +1,76 @@
+global component:
+   -> Navbar
+      - logged in
+        -- home page
+        -- favorites page
+        -- search the YouTube API (if allowed)
+        -- settings page (if allowed)
+        -- history page (if allowed)
+        -- logout button
+      - logged out
+        -- landing page
+        -- sign up / sign in pages
+   -> Footer
+      - change theme (light / dark)
+      - change language (English / Arabic)
+      - about the developer (modal)
+      - pro tips (optional)
+      - made with love (message)
+      - send feedback (modal)
+
+pages:
+  -> landing page (logged out)
+     - about the app
+     - how to add videos from YouTube
+     - sign up / sign in pages
+
+  -> home page (logged in)
+     - recent videos
+     - search the YouTube API (if allowed)
+     - favorite videos (page link)
+  -> favorites page (logged in)
+     - favorite videos
+  -> video page (logged in)
+     - video player (YouTube video player wrapper)
+     - video details
+     - add to favorites button
+     - favorite videos (page link)
+   -> history page (logged in + must enter the secret password to access)
+      - history of watched videos
+      - clear history button
+   -> profile page/side-drawer (logged in)
+      - user details
+      - user avatar
+  -> settings page (logged in + must enter the secret password to access)
+     - search the YouTube API
+     - allow / disallow the child to search the YouTube API
+     - change password
+     - delete account
+     - change the allowed duration for the child
+     - add / remove videos from the child's favorites
+     - remember the login credentials
+     - logout button
+     - allow tracking the history
+     - allow history to be cleared (default: false)
+     - set/update secret password to access the settings page (default: null)
+     - change theme (light / dark)
+     - change language (English / Arabic)
+     - send email on login (default: false)
+     - send email when the history is cleared (default: false)
+
+
+*****************************************************************************************************************************
+📑 References
+*****************************************************************************************************************************
++ https://developers.google.com/youtube/v3/docs
++ https://help.tcgplayer.com/hc/en-us/articles/115008106868-Finding-Your-YouTube-Video-ID
+
+
+*****************************************************************************************************************************
+🛠️ TOOLS
+*****************************************************************************************************************************
+🛠️ Nuxt.js - TypeScript
+🛠️ Nuxt UI
+🛠️ google fonts
+🛠️ Firebase (authentication/fire store)
+🛠️ Service worker + manifest.js to make it downloadable on any device
