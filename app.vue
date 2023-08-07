@@ -16,7 +16,7 @@
         <!-- content -->
         <div class="flex justify-center items-center flex-col">
           <h1
-            class="text-center text-primary-500 dark:text-primary-600 text-4xl sm:text-6xl font-extrabold"
+            class="text-center text-primary-500 dark:text-primary-400 text-4xl sm:text-6xl font-extrabold"
           >
             Youtube My Kids
           </h1>
@@ -33,172 +33,108 @@
           </UBadge>
         </div>
       </div>
-
-      <section>
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-          <div
-            class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8"
-          >
-            <a
-              href="#"
-              class="bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-blue-400 mb-2"
-            >
-              <svg
-                class="w-2.5 h-2.5 mr-1.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 14"
-              >
-                <path
-                  d="M11 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm8.585 1.189a.994.994 0 0 0-.9-.138l-2.965.983a1 1 0 0 0-.685.949v8a1 1 0 0 0 .675.946l2.965 1.02a1.013 1.013 0 0 0 1.032-.242A1 1 0 0 0 20 12V2a1 1 0 0 0-.415-.811Z"
-                />
-              </svg>
-              Tutorial
-            </a>
-            <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">
-              How to quickly deploy a static website
-            </h1>
-            <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">
-              Static websites are now used to bootstrap lots of websites and are becoming the basis
-              for a variety of tools that even influence both web designers and developers.
-            </p>
-            <a
-              href="#"
-              class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
-            >
-              Read more
-              <svg
-                class="w-3.5 h-3.5 ml-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </a>
-          </div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div
-              class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12"
-            >
-              <a
-                href="#"
-                class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-green-400 mb-2"
-              >
-                <svg
-                  class="w-2.5 h-2.5 mr-1.5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 18 18"
-                >
-                  <path
-                    d="M17 11h-2.722L8 17.278a5.512 5.512 0 0 1-.9.722H17a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1ZM6 0H1a1 1 0 0 0-1 1v13.5a3.5 3.5 0 1 0 7 0V1a1 1 0 0 0-1-1ZM3.5 15.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM16.132 4.9 12.6 1.368a1 1 0 0 0-1.414 0L9 3.55v9.9l7.132-7.132a1 1 0 0 0 0-1.418Z"
-                  />
-                </svg>
-                Design
-              </a>
-              <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
-                Start with Flowbite Design System
-              </h2>
-              <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">
-                Static websites are now used to bootstrap lots of websites and are becoming the
-                basis for a variety of tools that even influence both web designers and developers.
-              </p>
-              <a
-                href="#"
-                class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center"
-                >Read more
-                <svg
-                  class="w-3.5 h-3.5 ml-2"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </a>
-            </div>
-            <div
-              class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12"
-            >
-              <a
-                href="#"
-                class="bg-purple-100 text-purple-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md dark:bg-gray-700 dark:text-purple-400 mb-2"
-              >
-                <svg
-                  class="w-2.5 h-2.5 mr-1.5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 16"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 4 1 8l4 4m10-8 4 4-4 4M11 1 9 15"
-                  />
-                </svg>
-                Code
-              </a>
-              <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">
-                Best react libraries around the web
-              </h2>
-              <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">
-                Static websites are now used to bootstrap lots of websites and are becoming the
-                basis for a variety of tools that even influence both web designers and developers.
-              </p>
-              <a
-                href="#"
-                class="text-blue-600 dark:text-blue-500 hover:underline font-medium text-lg inline-flex items-center"
-                >Read more
-                <svg
-                  class="w-3.5 h-3.5 ml-2"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </UContainer>
-    <UContainer class="mt-auto flex-col flex items-center py-6 gap-3">
+    <section>
+      <div class="py-8 px-4 mx-auto lg:py-16 container">
+        <div class="flex flex-wrap gap-4 justify-between">
+          <InfoCard class="w-full" color="green">
+            <template #icon>
+              <UIcon name="i-heroicons-lock-closed" class="m-auto text-lg sm:text-2xl"></UIcon>
+              <span class="mx-2 text-lg sm:text-2xl"> Security </span>
+            </template>
+            <template #title>
+              <h3 class="text-3xl sm:text-4xl font-extrabold dark:text-gray-300 text-gray-700">
+                Don't hand your kids over to someone else's standards.
+              </h3>
+            </template>
+            <template #content>
+              <p>
+                Youtube My Kids is a free and open source project that allows you to create a safe
+                environment for your kids to enjoy their favorite videos on Youtube.
+              </p>
+              <p>
+                Meaning, you can choose what videos your kids can watch, and what videos they can't.
+              </p>
+              <p>we can't force you to watch something that you didn't choose.</p>
+            </template>
+          </InfoCard>
+          <InfoCard class="w-full sm:w-[calc(50%-10px)]" color="indigo">
+            <template #icon>
+              <UIcon name="i-heroicons-eye-slash" class="m-auto text-lg sm:text-2xl"></UIcon>
+              <span class="mx-2 text-lg sm:text-2xl"> Monitoring </span>
+            </template>
+            <template #title>
+              <h3 class="text-3xl sm:text-4xl font-extrabold dark:text-gray-300 text-gray-700">
+                Your eyes are on your kids, even when you're not.
+              </h3>
+            </template>
+            <template #content>
+              <p>
+                You can cherry-pick the videos you want your kids to watch, and Youtube My Kids will
+                take care of the rest.
+              </p>
+              <p>
+                So that means, there is no need to worry about your kids stumbling upon
+                inappropriate or brainwashing videos.
+              </p>
+            </template>
+          </InfoCard>
+          <InfoCard class="w-full sm:w-[calc(50%-10px)]" color="orange">
+            <template #icon>
+              <UIcon name="i-heroicons-lock-closed" class="m-auto text-lg sm:text-2xl"></UIcon>
+              <span class="mx-2 text-lg sm:text-2xl"> Control </span>
+            </template>
+            <template #title>
+              <h3 class="text-3xl sm:text-4xl font-extrabold dark:text-gray-300 text-gray-700">
+                No more Stealing your phone to watch Youtube videos.
+              </h3>
+            </template>
+            <template #content>
+              <p>
+                You can set a time limit and time frame for your kids to use the app, and once the
+                time is up, the app will be locked.
+              </p>
+              <p>
+                that helps you to control the time your kids spend on Youtube or on phone in
+                general.
+              </p>
+            </template>
+          </InfoCard>
+        </div>
+      </div>
+    </section>
+    <UContainer class="my-10">
       <div>
+        <h3 class="text-3xl sm:text-6xl font-extrabold text-center">
+          <p>Time to get started?!</p>
+          <p>
+            <span class="text-primary-500 dark:text-primary-400">it's free</span> and always will
+            be.
+          </p>
+        </h3>
+
+        <div class="my-5 flex justify-center">
+          <UButton
+            color="primary"
+            variant="outline"
+            size="xl"
+            :ui="{
+              rounded: 'rounded-full',
+            }"
+          >
+            <div class="p-2">
+              <UIcon name="i-heroicons-sparkles text-xl sm:text-3xl" class="mr-2"></UIcon>
+              <strong class="text-xl sm:text-3xl">Let's get started</strong>
+            </div>
+          </UButton>
+        </div>
+      </div>
+    </UContainer>
+    <UContainer class="mt-auto flex-col flex items-center pt-6 pb-28 gap-3">
+      <div class="text-gray-500">
         Made with <i class="i-heroicons-heart text-red-500 m-auto translate-y-1"></i> by Ragab
       </div>
       <ThemeToggler />
     </UContainer>
   </div>
 </template>
-<script setup lang="ts">
-  const appConfig = useAppConfig();
-  console.log(appConfig);
-</script>

@@ -5,21 +5,6 @@ export default defineAppConfig({
   ui: {
     primary: 'red',
     gray: 'stone',
-    colors: [
-      'red',
-      'orange',
-      'yellow',
-      'green',
-      'teal',
-      'blue',
-      'indigo',
-      'purple',
-      'pink',
-      'black',
-      'white',
-      'stone',
-      'slate',
-      'gray',
-    ],
+    colors: ['gray'],
   },
 });
