@@ -73,4 +73,4 @@ pages:
 🛠️ Nuxt UI
 🛠️ google fonts
 🛠️ Firebase (authentication/fire store)
-🛠️ Service worker + manifest.js to make it downloadable on any device
+🛠️ Service worker
