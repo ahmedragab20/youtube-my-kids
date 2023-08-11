@@ -6,7 +6,8 @@
       account settings once you're done.
     </p>
 
-    <!-- Login types -->
+    <!-- signup types -->
+    <!-- TODO Make this component reusable (use AuthPanel.vue) -->
     <div class="my-3">
       <!-- sing-up with google -->
       <div class="w-full my-2 sm:max-w-sm">
