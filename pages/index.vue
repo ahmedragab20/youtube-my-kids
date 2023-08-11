@@ -2,23 +2,20 @@
   <div class="min-h-screen flex justify-between flex-col">
     <UContainer>
       <div
-        class="flex mx-auto justify-center items-center flex-col sm:max-w-xl max-w-full p-5 shadow-gray-300 my-10 sm:p-10 rounded-t-full dark:shadow-gray-900 shadow-2xl hover:shadow-primary-500 hover:dark:shadow-primary-500 duration-300"
+        class="flex mx-auto justify-center items-center flex-col sm:max-w-xl max-w-full p-5 my-10 sm:p-10 rounded-t-full dark:shadow-gray-900 hover:shadow-2xl hover:shadow-primary-500 hover:dark:shadow-primary-500 duration-300"
       >
         <!-- logo -->
-        <div class="w-44 sm:w-56 pointer-events-none select-none">
-          <img
-            src="/icons/logo-transparent-512x512.png"
-            width="50"
-            height="50"
-            class="w-full h-full object-contain pointer-events-none select-none"
-          />
+        <div class="w-44 pointer-events-none select-none">
+          <div class="my-10 w-44">
+            <IconLogo class="text-primary-500 dark:text-primary-400" />
+          </div>
         </div>
         <!-- content -->
         <div class="flex justify-center items-center flex-col">
           <h1
             class="text-center text-primary-500 dark:text-primary-400 text-4xl sm:text-6xl font-extrabold"
           >
-            Youtube My Kids
+            {{ appName }}
           </h1>
           <p class="text-center text-xs sm:text-sm mb-1 mt-4">
             Discover the ultimate solution for safeguarding your kids while they enjoy their
@@ -123,21 +120,20 @@
         </h3>
 
         <div class="my-5 flex justify-center">
-          <UButton
-            color="primary"
-            variant="outline"
-            size="xl"
-            :ui="{
-              rounded: 'rounded-full',
-            }"
+          <ULink
+            to="/auth/signup"
+            class="border-2 border-primary-500 dark:border-primary-400 text-primary-500 dark:text-primary-400 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-400 dark:hover:text-white duration-300 rounded-full p-2"
           >
             <div class="p-2">
               <UIcon name="i-heroicons-sparkles text-xl sm:text-3xl" class="mr-2"></UIcon>
               <strong class="text-xl sm:text-3xl">Let's get started</strong>
             </div>
-          </UButton>
+          </ULink>
         </div>
       </div>
     </UContainer>
   </div>
 </template>
+<script lang="ts" setup>
+  const { name: appName } = useMyApp();
+</script>

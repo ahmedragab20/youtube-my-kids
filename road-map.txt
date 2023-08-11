@@ -54,6 +54,8 @@ pages:
      - allow history to be cleared (default: false)
      - set/update secret password to access the settings page (default: null)
      - change theme (light / dark)
+     - change primary + secondary colors
+     - have a special avatar for the child
      - change language (English / Arabic)
      - send email on login (default: false)
      - send email when the history is cleared (default: false)
