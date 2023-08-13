@@ -1,5 +1,6 @@
 import config from './config';
 export default defineNuxtConfig({
+  ssr: false,
   devtools: { enabled: true },
   modules: ['@nuxthq/ui', 'nuxt-vuefire'],
   vuefire: {

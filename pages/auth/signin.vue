@@ -26,10 +26,10 @@
   });
 
   const router = useRouter();
-
   const auth = getAuth();
+  const { addUser } = useAppFirestore();
 
-  const signinWithEmailPassword = (data: IAnyObject) => {
+  const signinWithEmailPassword = async (data: IAnyObject) => {
     const { email, password } = data;
     if (!email || !password) {
       throw createError({
@@ -38,17 +38,11 @@
       });
     }
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
+    await signInWithEmailAndPassword(auth, email, password)
+      .then(async (userCredential) => {
         const user = userCredential.user;
-        // ...
-
-        console.log({
-          user,
-        });
-
-        router.push('/dashboard');
+        addUser(user);
+        await router.push('/dashboard');
       })
       .catch((error) => {
         const errorCode = error.code;
