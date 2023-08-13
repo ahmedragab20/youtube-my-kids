@@ -24,6 +24,9 @@
   definePageMeta({
     layout: 'auth',
   });
+
+  const router = useRouter();
+
   const auth = getAuth();
 
   const signinWithEmailPassword = (data: IAnyObject) => {
@@ -44,6 +47,8 @@
         console.log({
           user,
         });
+
+        router.push('/dashboard');
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -73,6 +78,8 @@
           user,
           credential,
         });
+
+        router.push('/dashboard');
       })
       .catch((error) => {
         // Handle Errors here.
