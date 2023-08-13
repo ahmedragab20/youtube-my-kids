@@ -11,8 +11,5 @@ export default defineNuxtConfig({
       measurementId: 'G-6F1WBFEG77',
       messagingSenderId: '87707440697',
     },
-    admin: {
-      serviceAccount: process.env.GOOGLE_APPLICATION_CREDENTIALS,
-    },
   },
 });
