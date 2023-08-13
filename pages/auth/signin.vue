@@ -93,4 +93,7 @@
         });
       });
   };
+
+  // TODO: use nitro to store env variables
+  // Todo: use vercel env variables
 </script>
