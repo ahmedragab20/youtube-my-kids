@@ -1,20 +1,18 @@
-import config from './config';
 export default defineNuxtConfig({
-  ssr: false,
   devtools: { enabled: true },
   modules: ['@nuxthq/ui', 'nuxt-vuefire'],
   vuefire: {
     auth: true,
     config: {
-      apiKey: config.API_KEY,
-      authDomain: config.AUTH_DOMAIN,
-      projectId: config.PROJECT_ID,
-      appId: config.APP_ID,
-      measurementId: config.MEASUREMENT_ID,
-      messagingSenderId: config.MESSAGING_SENDER_ID,
+      apiKey: 'AIzaSyC0jwqcbPNSljJG5foK0hAV_GyeKmYaJdo',
+      authDomain: 'my-kids-e1a98.firebaseapp.com',
+      projectId: 'my-kids-e1a98',
+      appId: '1:87707440697:web:f20efe8641f669d1ae9fe8',
+      measurementId: 'G-6F1WBFEG77',
+      messagingSenderId: '87707440697',
     },
     admin: {
-      serviceAccount: config.ADMIN_SERVICE,
+      serviceAccount: process.env.GOOGLE_APPLICATION_CREDENTIALS,
     },
   },
 });

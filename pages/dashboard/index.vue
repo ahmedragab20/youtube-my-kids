@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-  import { getAuth, signOut } from 'firebase/auth';
+  import { signOut } from 'firebase/auth';
   definePageMeta({
     middleware: 'authentication',
   });
@@ -32,8 +32,8 @@
       'color: #fff; background-color: #000; padding: 0.25rem 0.5rem; border-radius: 0.45rem; font-weight: bold; font-family: monospace; font-size: 0.85rem;'
     );
 
-    const auth = getAuth();
-    signOut(auth)
+    const auth = useFirebaseAuth();
+    signOut(auth!)
       .then(() => {
         // Sign-out successful.
         router.push('/');

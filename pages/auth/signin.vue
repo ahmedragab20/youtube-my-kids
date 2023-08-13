@@ -13,12 +13,7 @@
 </template>
 
 <script setup lang="ts">
-  import {
-    GoogleAuthProvider,
-    getAuth,
-    signInWithEmailAndPassword,
-    signInWithPopup,
-  } from 'firebase/auth';
+  import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
   import { IAnyObject } from 'types';
 
   definePageMeta({
@@ -26,10 +21,14 @@
   });
 
   const router = useRouter();
-  const auth = getAuth();
+  const auth = useFirebaseAuth();
   const { addUser } = useAppFirestore();
 
   const signinWithEmailPassword = async (data: IAnyObject) => {
+    console.log({
+      data,
+    });
+
     const { email, password } = data;
     if (!email || !password) {
       throw createError({
@@ -38,7 +37,7 @@
       });
     }
 
-    await signInWithEmailAndPassword(auth, email, password)
+    await signInWithEmailAndPassword(auth!, email, password)
       .then(async (userCredential) => {
         const user = userCredential.user;
         addUser(user);
@@ -57,7 +56,7 @@
   };
   const signinWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth!, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -93,6 +92,10 @@
         });
       });
   };
+
+  console.log({
+    VITE_ADMIN_SERVICE: import.meta.env.GOOGLE_APPLICATION_CREDENTIALS,
+  });
 
   // TODO: use nitro to store env variables
   // Todo: use vercel env variables

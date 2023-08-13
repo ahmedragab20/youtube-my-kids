@@ -20,7 +20,6 @@
   import {
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
-    getAuth,
     signInWithPopup,
   } from 'firebase/auth';
   import { IAnyObject } from 'types';
@@ -31,7 +30,7 @@
 
   const router = useRouter();
 
-  const auth = getAuth();
+  const auth = useFirebaseAuth();
 
   const signupWithEmailPassword = (data: IAnyObject) => {
     const { email, password } = data;
@@ -42,7 +41,7 @@
       });
     }
 
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth!, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -68,7 +67,7 @@
 
   const signupWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth!, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
