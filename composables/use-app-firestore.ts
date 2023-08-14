@@ -1,4 +1,4 @@
-import { Firestore, addDoc, collection } from 'firebase/firestore';
+import { Firestore, addDoc, collection, doc, getDocs, query, where } from 'firebase/firestore';
 import { IFirestoreUser } from 'types/firebase';
 
 /**
@@ -25,6 +25,62 @@ export const useAppFirestore = () => {
       console.error(error);
       throw createError({
         message: "Couldn't read collection",
+        statusCode: 500,
+      });
+    }
+  };
+  /**
+   * @param collectionName
+   * @param docId
+   * @param db (optional)
+   * @returns Promise<void>
+   * @description read document by id
+   */
+  const readDocument = async (collectionName: string, docId: string, db?: Firestore) => {
+    if (!collectionName || !docId) {
+      console.error('collectionName && docId are required');
+      return;
+    }
+
+    try {
+      return useDocument(doc(db || defaultDB, collectionName, docId));
+    } catch (error) {
+      console.error(error);
+      throw createError({
+        message: "Couldn't read document",
+        statusCode: 500,
+      });
+    }
+  };
+  /**
+   * @param collectionName
+   * @param payload
+   * @param db (optional)
+   * @returns Promise<void>
+   * @description query document by key and value
+   */
+  const queryDocument = async (
+    collectionName: string,
+    payload: { key: string; value: string },
+    db?: Firestore
+  ) => {
+    if (!collectionName || !payload) {
+      console.error('collectionName && payload [key, value] are required');
+      return;
+    }
+
+    try {
+      const q = query(
+        collection(db || defaultDB, collectionName),
+        where(payload.key, '==', payload.value)
+      );
+      const querySnapshot = await getDocs(q);
+      const doc = querySnapshot.docs[0];
+      return doc;
+    } catch (error) {
+      console.error(error);
+      throw createError({
+        message: "Couldn't read document",
         statusCode: 500,
       });
     }
@@ -64,16 +120,18 @@ export const useAppFirestore = () => {
       return;
     }
 
-    // convert null values to empty strings
-    Object.keys(user).forEach((key) => {
-      // @ts-ignore
-      if (user[key] === null) {
-        // @ts-ignore
-        user[key] = '';
-      }
+    // if user already exists, stop execution
+    const userExists = await queryDocument('users', {
+      key: 'uid',
+      value: user.uid,
     });
 
-    console.log('user', user);
+    console.log({ userExists });
+
+    if (userExists) {
+      console.warn('user already exists');
+      return;
+    }
 
     try {
       return await addDoc(collection(db || defaultDB, 'users'), user);
@@ -88,6 +146,8 @@ export const useAppFirestore = () => {
 
   return {
     readCollection,
+    readDocument,
+    queryDocument,
     addDocument,
     addUser,
   };

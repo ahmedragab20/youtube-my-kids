@@ -8,7 +8,7 @@ export interface IFirestoreUser {
   emailVerified: boolean;
   phoneNumber: string | '' | null;
   providerId: string | '' | null;
-  metadata: UserMetadata;
+  metadata: Partial<UserMetadata>;
   refreshToken: string;
   isAnonymous: boolean;
 }

@@ -22,13 +22,13 @@
           v-if="route.path.includes('signin')"
           src="/02-auth.webp"
           alt="image for a green mountain illustration"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover select-none pointer-events-none"
         />
         <img
           v-else
           src="/01-auth.webp"
           alt="image for a green mountain illustration"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover select-none pointer-events-none"
         />
       </Transition>
     </div>

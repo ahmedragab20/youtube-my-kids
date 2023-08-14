@@ -2,6 +2,8 @@
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+
+  <UNotifications />
 </template>
 <script lang="ts" setup>
   const { name: appName } = useMyApp();

@@ -6,11 +6,18 @@
         @click="setActionMethod('google')"
         type="button"
         class="flex items-center gap-3 w-full border dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 px-4 py-3"
+        :class="{
+          'opacity-50 cursor-progress': googleLoading || emailPasswordLoading || loading,
+        }"
+        :disabled="googleLoading || emailPasswordLoading || loading"
       >
-        <img src="/icons/google-icon.svg" class="w-6 h-6" />
-        <span>
-          {{ viaGoogleBtnText }}
-        </span>
+        <AppSpinner v-if="googleLoading" size="6" />
+        <div class="flex items-center gap-3">
+          <img src="/icons/google-icon.svg" class="w-6 h-6" />
+          <span>
+            {{ viaGoogleBtnText }}
+          </span>
+        </div>
       </button>
     </div>
     <!-- email&password -->
@@ -19,11 +26,18 @@
         @click="setActionMethod('email')"
         type="button"
         class="flex items-center gap-3 w-full border dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 px-4 py-3"
+        :class="{
+          'opacity-50 cursor-progress': emailPasswordLoading || googleLoading || loading,
+        }"
+        :disabled="emailPasswordLoading || googleLoading || loading"
       >
-        <UIcon name="i-heroicons-at-symbol" class="w-6 h-6"></UIcon>
-        <span>
-          {{ viaEmailBtnText }}
-        </span>
+        <AppSpinner v-if="emailPasswordLoading" size="6" />
+        <div class="flex items-center gap-3">
+          <UIcon name="i-heroicons-at-symbol" class="w-6 h-6"></UIcon>
+          <span>
+            {{ viaEmailBtnText }}
+          </span>
+        </div>
       </button>
     </div>
 
@@ -83,7 +97,6 @@
                 rounded: 'rounded-xl',
               }"
               variant="soft"
-              :loading="loading"
               :disabled="!emailPasswordForm.email || !emailPasswordForm.password || !emailValid"
               @click="
                 emit('on-email-password-submit', emailPasswordForm), (emailPasswordMethod = false)
@@ -106,6 +119,8 @@
   interface Props {
     mode: 'sign-up' | 'sign-in';
     loading?: boolean;
+    emailPasswordLoading?: boolean;
+    googleLoading?: boolean;
   }
   const props = defineProps<Props>();
   const emit = defineEmits<{
