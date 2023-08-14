@@ -38,10 +38,8 @@
     }
 
     await signInWithEmailAndPassword(auth!, email, password)
-      .then(async (userCredential) => {
-        const user = userCredential.user;
-        addUser(user);
-        await router.push('/dashboard');
+      .then(() => {
+        router.push('/dashboard');
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -54,22 +52,23 @@
         });
       });
   };
-  const signinWithGoogle = () => {
+  const signinWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth!, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential!.accessToken;
-        // The signed-in user info.
+    await signInWithPopup(auth!, provider)
+      .then(async (result) => {
         const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
 
-        console.log({
-          token,
-          user,
-          credential,
+        await addUser({
+          uid: user.uid,
+          email: user.email!,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          emailVerified: user.emailVerified,
+          phoneNumber: user.phoneNumber,
+          providerId: user.providerId,
+          metadata: user.metadata,
+          refreshToken: user.refreshToken,
+          isAnonymous: user.isAnonymous,
         });
 
         router.push('/dashboard');
@@ -92,11 +91,4 @@
         });
       });
   };
-
-  console.log({
-    VITE_ADMIN_SERVICE: import.meta.env.GOOGLE_APPLICATION_CREDENTIALS,
-  });
-
-  // TODO: use nitro to store env variables
-  // Todo: use vercel env variables
 </script>

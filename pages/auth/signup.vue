@@ -23,16 +23,15 @@
     signInWithPopup,
   } from 'firebase/auth';
   import { IAnyObject } from 'types';
-
   definePageMeta({
     layout: 'auth',
   });
 
   const router = useRouter();
-
   const auth = useFirebaseAuth();
+  const { addUser } = useAppFirestore();
 
-  const signupWithEmailPassword = (data: IAnyObject) => {
+  const signupWithEmailPassword = async (data: IAnyObject) => {
     const { email, password } = data;
     if (!email || !password) {
       throw createError({
@@ -41,14 +40,21 @@
       });
     }
 
-    createUserWithEmailAndPassword(auth!, email, password)
-      .then((userCredential) => {
-        // Signed in
+    await createUserWithEmailAndPassword(auth!, email, password)
+      .then(async (userCredential) => {
         const user = userCredential.user;
-        // ...
 
-        console.log({
-          user,
+        await addUser({
+          uid: user.uid,
+          email: user.email!,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          emailVerified: user.emailVerified,
+          phoneNumber: user.phoneNumber,
+          providerId: user.providerId,
+          metadata: user.metadata,
+          refreshToken: user.refreshToken,
+          isAnonymous: user.isAnonymous,
         });
 
         router.push('/dashboard');
@@ -56,46 +62,43 @@
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
-
-        console.log({
+        console.error({
           errorCode,
           errorMessage,
         });
       });
   };
 
-  const signupWithGoogle = () => {
+  const signupWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth!, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
+    await signInWithPopup(auth!, provider)
+      .then(async (result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential!.accessToken;
-        // The signed-in user info.
         const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
 
-        console.log({
-          token,
-          user,
-          credential,
+        await addUser({
+          uid: user.uid,
+          email: user.email!,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          emailVerified: user.emailVerified,
+          phoneNumber: user.phoneNumber,
+          providerId: user.providerId,
+          metadata: user.metadata,
+          refreshToken: user.refreshToken,
+          isAnonymous: user.isAnonymous,
         });
 
         router.push('/dashboard');
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
         const email = error.customData.email;
-        // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
 
-        console.log({
+        console.error({
           errorCode,
           errorMessage,
           email,
