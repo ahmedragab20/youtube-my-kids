@@ -46,7 +46,8 @@
           description: 'Enjoy!❤️',
         });
 
-        router.push('/dashboard');
+        // router.push('/dashboard');
+        router.push('/onboarding');
       })
       .catch((error) => {
         console.error(error);

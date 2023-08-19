@@ -1,5 +1,15 @@
-import { Firestore, addDoc, collection, doc, getDocs, query, where } from 'firebase/firestore';
+import {
+  Firestore,
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from 'firebase/firestore';
 import { IFirestoreUser } from 'types/firebase';
+import { updateCurrentUserProfile } from 'vuefire';
 
 /**
  * Firestore composables to help with CRUD operations
@@ -109,6 +119,36 @@ export const useAppFirestore = () => {
     }
   };
   /**
+   * @param new document data
+   * @param collectionName
+   * @param db (optional)
+   * @returns Promise<void>
+   * @description updates document in firestore
+   */
+  const updateDocument = async (
+    collectionName: string,
+    docId: string,
+    payload: object,
+    db?: Firestore
+  ) => {
+    if (!collectionName || !docId || !payload) {
+      console.error('collectionName && docId && payload are required');
+      return;
+    }
+
+    try {
+      const docRef = doc(db || defaultDB, collectionName, docId);
+      await updateDoc(docRef, payload);
+    } catch (error) {
+      console.error(error);
+      throw createError({
+        message: "Couldn't update document",
+        statusCode: 500,
+      });
+    }
+  };
+
+  /**
    * @param user
    * @param db (optional)
    * @returns Promise<void>
@@ -126,8 +166,6 @@ export const useAppFirestore = () => {
       value: user.uid,
     });
 
-    console.log({ userExists });
-
     if (userExists) {
       console.warn('user already exists');
       return;
@@ -143,6 +181,38 @@ export const useAppFirestore = () => {
       });
     }
   };
+  /**
+   * @param new user data
+   * @param db (optional)
+   * @returns Promise<void>
+   * @description update user in firebase auth and firestore
+   */
+  const updateUser = async (user: Partial<IFirestoreUser>, db?: Firestore) => {
+    if (!user) {
+      console.error('user is required');
+      return;
+    }
+
+    try {
+      const currentUser = useCurrentUser();
+
+      const userDoc = await queryDocument('users', {
+        key: 'uid',
+        value: currentUser.value!.uid,
+      });
+
+      // update user in firebase auth
+      await updateCurrentUserProfile(user);
+      // update user in firestore
+      await updateDocument('users', userDoc?.id!, user);
+    } catch (error) {
+      console.error(error);
+      throw createError({
+        message: "Couldn't update user",
+        statusCode: 500,
+      });
+    }
+  };
 
   return {
     readCollection,
@@ -150,5 +220,6 @@ export const useAppFirestore = () => {
     queryDocument,
     addDocument,
     addUser,
+    updateUser,
   };
 };

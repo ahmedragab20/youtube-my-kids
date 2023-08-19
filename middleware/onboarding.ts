@@ -1,10 +1,12 @@
 export default defineNuxtRouteMiddleware((to, from) => {
   const user = useCurrentUser();
 
-  if (!user.value) {
+  if (!!user.value?.displayName) {
+    return navigateTo('/dashboard');
+  }
+  if (!user.value?.uid) {
     return navigateTo('/auth/signin');
   }
-  // TODO.... check the auth-land case later
 
   return true;
 });

@@ -63,12 +63,12 @@
         });
 
         toast.add({
-          title: 'Account created',
-          description: 'Your account has been created successfully.',
+          title: 'Welcome🥰',
+          description: 'Hope you have a wonderful session with us.',
           icon: 'i-heroicons-check-badge',
         });
 
-        router.push('/dashboard');
+        router.push('/onboarding');
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -110,8 +110,8 @@
         });
 
         toast.add({
-          title: 'Account created',
-          description: 'Your account has been created successfully.',
+          title: 'Welcome🥰',
+          description: 'Hope you have a wonderful session with us.',
           icon: 'i-heroicons-check-badge',
         });
 
