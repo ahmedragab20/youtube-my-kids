@@ -1,10 +1,17 @@
 <template>
-  <div class="min-h-[85svh] flex justify-center items-center flex-col">
-    <h2 class="text-3xl font-bold">Dashboard</h2>
-    <p class="text-xl">
-      Welcome to your dashboard,
-      <span v-if="user?.uid" class="text-primary-500"> {{ user?.displayName || user.email }} </span>
-    </p>
+  <div class="min-h-[85svh] container mx-auto sm:px-0 px-3">
+    <!-- The welcome banner -->
+    <div class="min-h-[250px] p-5 flex justify-center items-center flex-col">
+      <!-- image -->
+      <div class="p-10 rounded-full">
+        <div class="w-10 h-10 flex justify-center items-center p-3">
+          <span class="text-6xl">✨</span>
+        </div>
+      </div>
+      <div class="text-center">
+        <h1 class="text-3xl font-semibold">Welcome, {{ user?.displayName }}</h1>
+      </div>
+    </div>
 
     <div>
       <button
