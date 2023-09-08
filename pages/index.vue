@@ -32,7 +32,7 @@
         <!-- buttons -->
         <ULink
           to="/auth/signup"
-          class="text-primary-500 dark:text-primary-400 border-b-2 border-primary-500 dark:border-primary-400 p-1 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-400 dark:hover:text-white duration-300 rounded-full mt-10 px-2"
+          class="text-primary-500 dark:text-primary-400 border-2 border-primary-500 dark:border-primary-400 p-1 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-400 dark:hover:text-white duration-300 rounded-full mt-10 px-2"
         >
           Get Started
         </ULink>

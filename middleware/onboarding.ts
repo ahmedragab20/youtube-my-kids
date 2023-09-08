@@ -7,6 +7,4 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (!user.value?.uid) {
     return navigateTo('/auth/signin');
   }
-
-  return true;
 });

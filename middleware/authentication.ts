@@ -5,6 +5,4 @@ export default defineNuxtRouteMiddleware((to, from) => {
     return navigateTo('/auth/signin');
   }
   // TODO.... check the auth-land case later
-
-  return true;
 });
