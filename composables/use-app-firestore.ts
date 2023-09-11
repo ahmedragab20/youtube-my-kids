@@ -1,3 +1,4 @@
+import { IFirestoreUser } from '@/types/firebase';
 import {
   Firestore,
   addDoc,
@@ -8,7 +9,6 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
-import { IFirestoreUser } from 'types/firebase';
 import { updateCurrentUserProfile } from 'vuefire';
 
 /**

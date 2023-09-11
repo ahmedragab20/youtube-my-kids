@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "youtube-my-kids",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -11,7 +11,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxthq/ui": "^2.7.0",
-    "@types/node": "^20.5.9",
+    "@types/node": "^20.6.0",
     "firebase-admin": "^11.10.1",
     "firebase-functions": "^4.4.1",
     "nuxt": "^3.7.1"

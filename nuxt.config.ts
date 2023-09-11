@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  ssr: false, // disabling this for now, until i fix the vuefire issue
   devtools: { enabled: true },
   modules: ['@nuxthq/ui', 'nuxt-vuefire'],
   vuefire: {
